@@ -58,6 +58,7 @@ html,
 body {
   width: 100%;
   max-width: 100%;
+  overflow-x: hidden;
 }
 .deviants-app {
   width: 100%;
@@ -114,10 +115,12 @@ header {
   width: 100%;
   background-color: #000;
   position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 .hero-img {
   width: max-content;
-  height: 100vh;
+  height: 115vh;
   position: absolute;
   top: 0;
   right: 0;
@@ -508,6 +511,11 @@ header {
   }
   .hero-img {
     filter: brightness(0.65);
+    left: unset;
+    right: -20%;
+    top: unset;
+    bottom: 0;
+    height: 90vh;
   }
   .footer-p {
     color: #fff;
