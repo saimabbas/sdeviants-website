@@ -3,7 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SDEVIANTS | Contact</title>
+    <title>Contact - Personalized films, games, and comics</title>
+    <link
+      rel="icon"
+      href="https://sdeviants.io/wp-content/uploads/2023/05/cropped-logo-192x192.webp"
+      sizes="192x192"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Team - Personalized films, games, and comics"
+    />
+    <meta
+      property="og:description"
+      content="Asa Greenberg CEO $500M+ raised for media/content Film/TV/Digital video Producer incl. BLADE RUNNER 2049 Expertise: Strategy, Corp Dev, Social Media/Video Mike Goslin CPO/CTO Disney Games; ex-Head of Innovation; led social, mobile, RPG hits Authored &gt;100 patents Expertise: Product, Tech, Game Dev, Ops Ian McGloin CCO Produced award-winning films incl. BLADE RUNNER 2049 Deep talent relationships &hellip; Team Read More &raquo;"
+    />
+    <meta property="og:url" content="https://sdeviants.io/team/" />
+    <meta
+      property="og:site_name"
+      content="Personalized films, games, and comics"
+    />
+    <meta
+      property="article:modified_time"
+      content="2023-05-27T12:02:43+00:00"
+    />
+    <meta
+      property="og:image"
+      content="http://sdeviants.io/wp-content/uploads/2023/05/unnamed-3-150x150.webp"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:label1" content="Est. reading time" />
+    <meta name="twitter:data1" content="4 minutes" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -94,13 +125,21 @@
               <div class="contact-grid-right">
                 <h3 class="manuka">Leave a Message</h3>
                 <div class="red-bar"></div>
-                <div class="contact-input-box">
-                  <input type="text" placeholder="First Name" />
-                  <input type="text" placeholder="Last Name" />
-                  <input type="text" placeholder="Email Address" />
-                  <textarea name="" id="" placeholder="Your Message"></textarea>
-                  <button>Submit</button>
-                </div>
+                <form class="contact-input-box" id="contactForm">
+                  <input
+                    type="text"
+                    name="First Name"
+                    placeholder="First Name"
+                  />
+                  <input type="text" name="Last Name" placeholder="Last Name" />
+                  <input type="text" name="Email" placeholder="Email Address" />
+                  <textarea
+                    id=""
+                    name="Message"
+                    placeholder="Your Message"
+                  ></textarea>
+                  <button type="submit" id="submitButton">Submit</button>
+                </form>
               </div>
             </div>
             <p>Standard Deviants, Inc.</p>
@@ -120,6 +159,39 @@
           display: "none",
         });
       });
+    </script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Retrieve form data
+          var formData = new FormData(this);
+
+          // Send data using email
+          var email = "info@sdeviants.io";
+          var subject = "New Contact Form Submission";
+          var body = "";
+          formData.forEach(function (value, key) {
+            body += key + ": " + value + "\n";
+          });
+
+          var mailtoLink =
+            "mailto:" +
+            email +
+            "?subject=" +
+            encodeURIComponent(subject) +
+            "&body=" +
+            encodeURIComponent(body);
+          window.location.href = mailtoLink;
+
+          // Show success message
+          alert("Form submitted successfully!");
+
+          // Reset form
+          this.reset();
+        });
     </script>
   </body>
 </html>
